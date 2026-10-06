@@ -19,8 +19,6 @@ print("[3] Show total spent     (coming soon)")
 print("[4] Exit                 (coming soon)")
 
 print("-" * 40)
-print("Made by: Harvey Sanico | Installmentt 1")
-print("=" * 40)
 
 # Expense Tracker - Installment 2
 
@@ -30,23 +28,39 @@ name = input("What is your name? ")
 
 print(f"Welcome, {name}! Let's log two expenses.")
 
+subtotal = 0
+
 item1 = input("Enter first expense item: ")
 amount1 = float(input("Enter amount: "))
+subtotal = subtotal + amount1
 
 item2 = input("Enter second expense item: ")
 amount2 = float(input("Enter amount: "))
+subtotal = subtotal + amount2
 
-total = amount1 + amount2
-average = total / 2
+
+average = subtotal / 2
+
+tax_rate = int(input("Enter tax rate: "))
+tax = subtotal * tax_rate / 100
+grand_total = subtotal + tax 
+
+
+budget = float(input("Enter your budget: "))
+over_budget = grand_total > budget
+left_in_budget = budget - grand_total
 
 print("----------------------------------------")
 print("SUMMARY")
-print(f"-{item1:<20} ${amount1:>10.2f}")
-print(f"-{ item2:<20} ${amount2:>10.2f}")
-print(f"{' Total Spent:':<20} ${total:>10.2f}")
-print(f"{' Average:':<20} ${average:>10.2f}")
+print(f"{item1}:\t$ {amount1:.2f}")
+print(f"{item2}:\t$ {amount2:.2f}")
+print(f"Subtotal:\t$ {subtotal:.2f}")
+print(f"Average:\t$ {average:.2f}")
+print(f"Tax ({tax_rate}%):\t$ {tax:.2f}")
+print(f"Grand total:\t$ {grand_total:.2f}")
+print(f"Over budget?\t{over_budget}")
+print(f"Left in budget:\t$ {left_in_budget:.2f}")
 print("----------------------------------------")
-
-print(f"Made by: {name} | Installment 2")
+print(f"Made by: {name} | Installment 3")
 
 
